@@ -1,3 +1,14 @@
-<p>
-  links works!
-</p>
+<h1>Links</h1>
+<div class="list-group">
+  <li *ngFor="let link of links" class="list-group-item">
+    <app-link [link]="link"></app-link>
+    <button class="btn btn-default" aria-label="Left Align" title="Delete Link"  (click)="deleteLink(link)">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </button>
+  </li>
+  <li class="list-group-item">
+    <button class="btn btn-default" aria-label="Left Align" title="Add Link" (click)="addLink()">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button>
+  </li>
+</div>
