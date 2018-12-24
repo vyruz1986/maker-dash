@@ -11,6 +11,10 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LinksComponent } from './components/links/links.component';
 import { LinkComponent } from './components/link/link.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEdit, faSave, faTrash, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+
 
 @NgModule({
   declarations: [
@@ -31,9 +35,14 @@ import { LinkComponent } from './components/link/link.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'links', component: LinksComponent },
-    ])
+    ]),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+   constructor() {
+      library.add(faEdit, faSave, faTrash, faPlusSquare);
+   }
+}

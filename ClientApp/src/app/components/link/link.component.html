@@ -1,3 +1,17 @@
-<p>
-  link works!
-</p>
+<span>
+   <a *ngIf="!link.editable" target="_blank" href="{{link.url}}">{{link.name}}</a>
+   <form *ngIf="link.editable">
+      <label for="url">URL:</label>
+      <input type="text" [(ngModel)]="link.url" name="url">
+      <label for="name">Name:</label>
+      <input type="name" [(ngModel)]="link.name" name="name">
+   </form>
+</span>  
+<span class="actionButtons"> 
+   <button *ngIf="!link.editable" class="btn btn-primary btn-sm" aria-label="Left Align" (click)="linkEditable()">
+      <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+   </button>
+   <button *ngIf="link.editable" class="btn btn-primary btn-sm" aria-label="Left Align" (click)="link.id > 0 ? updateLink() : createLink()">
+      <fa-icon [icon]="['fas', 'save']"></fa-icon>
+   </button>
+</span>
