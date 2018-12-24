@@ -9,4 +9,4 @@ before_script:
 build:
     stage: publish
     script:
-        - "dotnet dotnet publish"
+        - "dotnet publish"
