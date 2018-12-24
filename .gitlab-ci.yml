@@ -1,0 +1,13 @@
+image: microsoft/dotnet:latest
+
+stages:
+    - publish
+
+before_script:
+    - "cd src"
+    - "dotnet restore"
+
+build:
+    stage: publish
+    script:
+        - "dotnet dotnet publish"
