@@ -1,4 +1,4 @@
-image: microsoft/aspnetcore-build
+image: promact/docker-dotnet-nodejs
 
 stages:
     - publish
