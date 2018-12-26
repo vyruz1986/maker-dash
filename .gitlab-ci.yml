@@ -1,4 +1,4 @@
-image: promact/docker-dotnet-nodejs
+image: images4build/dotnetbuilder
 
 stages:
     - publish
