@@ -70,6 +70,11 @@ namespace maker_dash
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<LinkContext>();
+                context.Database.Migrate();
+            }
         }
     }
 }
