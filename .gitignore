@@ -511,3 +511,5 @@ ASALocalRun/
 
 # End of https://www.gitignore.io/api/angular,aspnetcore,visualstudio,visualstudiocode
 Data/
+
+build/
