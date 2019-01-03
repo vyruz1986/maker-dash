@@ -1,23 +1,10 @@
-image: images4build/dotnetbuilder
-
 stages:
-    - publish
-    - deploy
-
-before_script:
-    - "dotnet restore"
+    - build
 
 build:
-    stage: publish
+    stage: build
+    image: docker
+    services:
+        - docker:dind
     script:
-        - "dotnet publish"
-
-deploy_staging:
-    stage: deploy
-    script:
-        - echo "deploying to staging"
-    environment:
-        name: staging
-        url: https://staging.makerdash.fastlikehell.com
-    only:
-        - develop
+        - docker build -t maker-dash .
