@@ -1,10 +1,19 @@
+image: docker
+services:
+    - docker:dind
+
 stages:
     - build
+    - push
 
 build:
     stage: build
-    image: docker
-    services:
-        - docker:dind
     script:
-        - docker build -t maker-dash .
+        - docker build -t alexgoris/maker-dash:latest .
+        - docker save alexgoris/maker-dash:latest > docker-images/maker-dash.tar
+
+push:
+    stage: push
+    script:
+    - docker load -i docker-images/maker-dash.tar
+    - docker push maker-dash
