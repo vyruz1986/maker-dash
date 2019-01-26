@@ -1,13 +1,13 @@
 version: '2'
 
-services:  
-  maker-dash:
-    image: maker-dash
-    container_name: maker-dash
-    build:
-      context: ./
-      dockerfile: Dockerfile
-      args:
-        source: ./build
-    ports:
-      - "5005:80"
+services:
+   maker-dash:
+      image: maker-dash
+      container_name: maker-dash
+      build:
+         context: ./
+         dockerfile: Dockerfile
+         args:
+            source: ./build
+      ports:
+         - '5005:80'
