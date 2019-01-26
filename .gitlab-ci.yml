@@ -16,5 +16,5 @@ push:
    stage: push
    script:
       #- docker load -i docker-images/maker-dash.tar
-      - docker login -u ${REG_UN} -p ${REG_PW}
+      - docker login -u $REG_UN -p $REG_PW
       - docker push alexgoris/maker-dash
