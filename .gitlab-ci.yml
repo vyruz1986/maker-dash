@@ -4,19 +4,10 @@ services:
 
 stages:
    - build
-   - push
 
 build:
    stage: build
    script:
       - docker build -t alexgoris/maker-dash:latest .
-      #- docker save alexgoris/maker-dash:latest > docker-images/maker-dash.tar
-
-push:
-   stage: push
-   variables:
-      CI_DEBUG_TRACE: "true"
-   script:
-      #- docker load -i docker-images/maker-dash.tar
       - docker login -u $REG_UN -p $REG_PW
       - docker push alexgoris/maker-dash
