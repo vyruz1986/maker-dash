@@ -21,6 +21,6 @@ RUN dotnet publish -c Release -o build
 FROM microsoft/dotnet:aspnetcore-runtime
 WORKDIR /app
 COPY --from=build-env /app/build .
-VOLUME [ "/app/Data" ]
+VOLUME [ "/app/data" ]
 EXPOSE 80
 ENTRYPOINT ["dotnet", "maker-dash.dll"]
