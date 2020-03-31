@@ -2,12 +2,12 @@ using System.Reflection;
 using maker_dash.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
 
 namespace maker_dash
 {
@@ -24,8 +24,8 @@ namespace maker_dash
         public void ConfigureServices(IServiceCollection services)
         {
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
-            services.AddDbContext<LinkContext>(opt => opt.UseSqlite("Data Source=Data/maker-dash.db", sql => sql.MigrationsAssembly(migrationsAssembly)));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);            
+            services.AddDbContext<LinkContext>(opt => opt.UseSqlite("Data Source=data/maker-dash.db", sql => sql.MigrationsAssembly(migrationsAssembly)));
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -72,6 +72,10 @@ namespace maker_dash
             });
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
+                // Make sure the data folder exists
+                if (!Directory.Exists("data"))
+                    Directory.CreateDirectory("data");
+
                 var context = serviceScope.ServiceProvider.GetRequiredService<LinkContext>();
                 context.Database.Migrate();
             }

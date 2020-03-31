@@ -510,6 +510,6 @@ ASALocalRun/
 .localhistory/
 
 # End of https://www.gitignore.io/api/angular,aspnetcore,visualstudio,visualstudiocode
-Data/
+data/
 
 build/
