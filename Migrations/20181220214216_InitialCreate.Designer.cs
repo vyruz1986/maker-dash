@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using maker_dash.Models;
+using MakerDash.Models;
 
-namespace maker_dash.Migrations
+namespace MakerDash.Migrations
 {
     [DbContext(typeof(LinkContext))]
     [Migration("20181220214216_InitialCreate")]

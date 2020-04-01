@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace maker_dash.Controllers
+namespace MakerDash.Controllers
 {
     [Route("api/[controller]")]
     public class SampleDataController : Controller

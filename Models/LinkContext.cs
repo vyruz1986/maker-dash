@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace maker_dash.Models
+namespace MakerDash.Models
 {
-   public class LinkContext : DbContext
-   {
-      public LinkContext(DbContextOptions<LinkContext> options)
-          : base(options)
-      {
-      }
+    public class LinkContext : DbContext
+    {
+        public LinkContext(DbContextOptions<LinkContext> options)
+            : base(options)
+        {
+        }
 
-      public DbSet<LinkItem> LinkItems { get; set; }
+        public DbSet<LinkItem> LinkItems { get; set; }
 
-   }
+    }
 }

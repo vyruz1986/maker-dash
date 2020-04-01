@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace maker_dash.Migrations
+namespace MakerDash.Migrations
 {
     public partial class InitialCreate : Migration
     {

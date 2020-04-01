@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:sdk AS build-env
+FROM mcr.microsoft.com/dotnet/core/sdk AS build-env
 
 # Install NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \ 
@@ -6,9 +6,6 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
 	&& apt install -y nodejs
 
 WORKDIR /app
-
-# Make sure angular CLI is installed
-RUN npm install -g @angular/cli
 
 # Copy csproj and restore as distinct layers
 COPY *.csproj ./
