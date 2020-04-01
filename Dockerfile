@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk AS build-env
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
 
 # Install NodeJS
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \ 
@@ -15,7 +15,7 @@ RUN dotnet restore
 COPY . ./
 RUN dotnet publish -c Release -o build
 
-FROM mcr.microsoft.com/dotnet/core/runtime
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
 COPY --from=build-env /app/build .
 VOLUME [ "/app/data" ]
