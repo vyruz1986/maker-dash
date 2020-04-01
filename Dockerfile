@@ -15,7 +15,7 @@ RUN dotnet restore
 COPY . ./
 RUN dotnet publish -c Release -o build
 
-FROM microsoft/dotnet:aspnetcore-runtime
+FROM mcr.microsoft.com/dotnet/core/runtime
 WORKDIR /app
 COPY --from=build-env /app/build .
 VOLUME [ "/app/data" ]
